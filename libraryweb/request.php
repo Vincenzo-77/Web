@@ -253,20 +253,18 @@
                       </table>
                       
                       <?php 
-                        if(isset($_POST['approve'])){
-
-                          $studentNo = $_POST['studentNo'];
+                        if(isset($_POST['approve'])) {
+                          $studentNo = $_POST['id']; // Change 'studentNo' to 'id'
                           $select = "UPDATE request SET status_req = 'approved' WHERE studentNo = '$studentNo' ";
-                          $resut = mysqli_query($conn,$select);
-                        }
-
-
-                        if(isset($_POST['decline'])){
-
-                          $studentNo = $_POST['studentNo'];
-                          $select = "UPDATE request SET status_req = 'approved' WHERE studentNo = '$studentNo' ";
-                          $resut = mysqli_query($conn,$select);
-                        }
+                          $result = mysqli_query($conn, $select);
+                      }
+                      
+                      if(isset($_POST['decline'])) {
+                          $studentNo = $_POST['id']; // Change 'studentNo' to 'id'
+                          $select = "UPDATE request SET status_req = 'declined' WHERE studentNo = '$studentNo' ";
+                          $result = mysqli_query($conn, $select);
+                      }
+                      
 
                         ?>
                     
